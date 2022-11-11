@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
+
+    <title>나만의 동기부여 HOME화면 만들기</title>
+
+    <script src="index.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+            background-image:  url(https://hamonikr.org/files/attach/images/118/310/070/d79db7380d8f96b4990147e7dbc75f08.jpg);
+            background-size: cover;
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-color: #f7b9ba;
+
+            color: #444444;
+        }
+
+        .time {
+            font-size: 20vh;
+            font-weight:  bold;
+        }
+
+        .greeting { font-size: 50px;}
+
+        .clock { font-size: 30px;}
+
+        .author { 
+            font-size: 25px;
+            font-style: italic;
+        }
+
+        .main {
+            width: 100vw;
+            height: 80vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote {
+            width: 100vw;
+            height: 20vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+	<div class="main">
+        <div id="time" class="time">시간</div>
+        <div class="greeting">Hello stranger<i>!</i></div>
+        <div id="clock" class="clock">사실 날짜지롱</div>
+    </div>
+    <div class="quote">
+        <div id="author" class="author">명언의 저자</div>
+        <div id="content" class="content">명언의 내용</div>
+    </div>
+
+</body>
+
+<script>
+    var Target = document.getElementById("clock");
+    function clock() {
+        var time = new Date();
+
+        var month = time.getMonth();
+        var date = time.getDate();
+        var day = time.getDay();
+        var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+
+        Target.innerText = 
+        `${month + 1}월 ${date}일 ${week[day]}요일 `                 
+    }
+    clock();
+    setInterval(clock, 1000); // 1초마다 실행
+</script>
+
+</html>
